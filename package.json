@@ -1,7 +1,7 @@
 {
   "name": "datopian-import-ui",
   "version": "0.1.0",
-  "homepage": "datopian.github.io/import-ui",
+  "homepage": "https://datopian.github.io/import-ui",
   "private": true,
   "dependencies": {
     "react": "^16.8.1",
