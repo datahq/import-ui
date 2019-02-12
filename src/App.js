@@ -18,13 +18,13 @@ class App extends Component {
       <div>
         <div className='App'>
           <Router basename={process.env.PUBLIC_URL}>
-						<FileProvider>
+            <FileProvider>
               <Header />
               <Breadcrumb />
               <Route exact={true} path='/' render={()=>(home)} />
               <Route exact={true} path='/publish' render={()=>(publish)} />
               <Pager />
-						</FileProvider>
+            </FileProvider>
           </Router>
         </div>
       </div>

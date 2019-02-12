@@ -13,29 +13,29 @@ class Publish extends Component {
     );
   }
 
-	render() {
+  render() {
 
-		return (
-			<>
+    return (
+      <>
       <main role="main" className="container-fluid">
         <h1>Publish</h1>
         <p className="lead">This is the publish page.</p>
-				<FileConsumer>
-					{({ isFile, fileUpload  }) => (
-						<div>
-								{isFile ? (
-									<div>We have file</div>
-								) : (
-								  <div>No file yet.</div>	
-								)}
-						</div>
-					)}
-				</FileConsumer>
+        <FileConsumer>
+          {({ isFile, fileUpload  }) => (
+            <div>
+                {isFile ? (
+                  <div>We have file</div>
+                ) : (
+                  <div>No file yet.</div> 
+                )}
+            </div>
+          )}
+        </FileConsumer>
 
       </main>
-			</>
-		);
-	}
+      </>
+    );
+  }
 }
 
 export default Publish;
