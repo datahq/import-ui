@@ -7,14 +7,14 @@ export default class Pager extends React.Component {
   render() {
     return (
       <nav aria-label="Page navigation example">
-        <ul class="pagination">
+        <ul className="pagination">
           <FileConsumer>
             {({ isFile }) => (
               <>
                   {isFile ? (
                     <>
-                      <li class="page-item"><Link to="/" class="page-link">Previous</Link></li>
-                      <li class="page-item"><Link to="/publish">Next</Link></li>
+                      <li className="page-item"><Link to="/" className="page-link">Previous</Link></li>
+                      <li className="page-item"><Link to="/publish" className="page-link">Next</Link></li>
                     </>
                   ) : (
                     ''

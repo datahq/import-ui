@@ -24,7 +24,7 @@ class Publish extends Component {
           {({ isFile, fileUpload  }) => (
             <div>
                 {isFile ? (
-                  <div>We have file</div>
+                  <div><p>We still have a file!</p></div>
                 ) : (
                   <div>No file yet.</div> 
                 )}

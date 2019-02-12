@@ -6,7 +6,6 @@ import { FileConsumer } from './context/FileContext';
 class Home extends Component {
 
   render() {
-                  //<button onClick={fileUpload}>Upload</button>
 
     return (
       <>
@@ -17,9 +16,9 @@ class Home extends Component {
           {({ isFile, fileUpload  }) => (
             <div>
                 {isFile ? (
-                  <div>We have file</div>
+                  <div><p>We have a file!</p></div>
                 ) : (
-                  <FileUpload />
+                  <FileUpload upload={fileUpload} />
                 )}
             </div>
           )}
