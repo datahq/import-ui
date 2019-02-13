@@ -3,23 +3,38 @@ import React from 'react'
 const FileContext = React.createContext()
 
 class FileProvider extends React.Component {
-  state = { isFile: false }
+  state = {
+    file: false,
+    step: "home"
+  }
 
   constructor() {
-    super()
-    this.fileUpload = this.fileUpload.bind(this)
+    super();
+    this.fileUpload = this.fileUpload.bind(this);
+    this.stepChange = this.stepChange.bind(this);
+  }
+
+  nextStep(step) {
+
   }
 
   fileUpload() {
-    this.setState({ isFile: true })
+    this.setState({ file: true })
+  }
+
+  stepChange(e) {
+    const step = e.target.attributes.getNamedItem('data').value;
+    this.setState({step: step});
   }
 
   render() {
     return (
       <FileContext.Provider
         value={{
-          isFile: this.state.isFile,
+          file: this.state.file,
           fileUpload: this.fileUpload,
+          step: this.state.step,
+          stepChange: this.stepChange
         }}
       >
         {this.props.children}
@@ -31,4 +46,3 @@ class FileProvider extends React.Component {
 const FileConsumer = FileContext.Consumer
 
 export { FileProvider, FileConsumer }
-

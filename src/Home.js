@@ -13,9 +13,9 @@ class Home extends Component {
         <h1>Welcome</h1>
         <p className="lead">This is the home page.</p>
         <FileConsumer>
-          {({ isFile, fileUpload  }) => (
+          {({ file, fileUpload  }) => (
             <div>
-                {isFile ? (
+                {file ? (
                   <div><p>We have a file!</p></div>
                 ) : (
                   <FileUpload upload={fileUpload} />

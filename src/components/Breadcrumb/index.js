@@ -4,19 +4,37 @@ import { FileConsumer } from '../../context/FileContext';
 
 export default class NavBar extends React.Component {
 
+  step(file, step, stepChange) {
+    let breadcrumb = (<div/>);
+    if (step === "home" && file === false) {
+      breadcrumb = (<li className="breadcrumb-item">Home</li>);
+    }
+    else if (step === "home") {
+      breadcrumb = (
+        <>
+        <li className="breadcrumb-item">Home</li>
+        <li className="breadcrumb-item active" aria-current="page"><Link data="publish" onClick={stepChange} to="/publish">Publish</Link></li>
+        </>
+      );
+    }
+    else if (step === "publish") {
+      breadcrumb = (
+        <>
+        <li className="breadcrumb-item"><Link data="home" onClick={stepChange} to="/">Home</Link></li>
+        <li className="breadcrumb-item active" aria-current="page">Publish</li>
+        </>
+      );
+    }
+    return breadcrumb;
+  }
   render() {
     return (
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
-          <li className="breadcrumb-item"><Link to="/">Home</Link></li>
           <FileConsumer>
-            {({ isFile, fileUpload  }) => (
+            {({ file, stepChange, step }) => (
               <>
-                  {isFile ? (
-                    <li className="breadcrumb-item active" aria-current="page"><Link to="/publish">Publish</Link></li>
-                  ) : (
-                    ''
-                  )}
+              {this.step(file, step, stepChange)}
               </>
             )}
           </FileConsumer>
@@ -25,4 +43,3 @@ export default class NavBar extends React.Component {
     );
   }
 }
-

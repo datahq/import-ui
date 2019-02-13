@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { FileConsumer } from './context/FileContext';
+import { Redirect } from 'react-router'
 
 class Publish extends Component {
-  
-  state = {
-    uploaded: false
-  }
 
   fileUpload() {
     return (
@@ -21,12 +18,12 @@ class Publish extends Component {
         <h1>Publish</h1>
         <p className="lead">This is the publish page.</p>
         <FileConsumer>
-          {({ isFile, fileUpload  }) => (
+          {({ file }) => (
             <div>
-                {isFile ? (
+                {file ? (
                   <div><p>We still have a file!</p></div>
                 ) : (
-                  <div>No file yet.</div> 
+                  <Redirect to="/"/>
                 )}
             </div>
           )}
