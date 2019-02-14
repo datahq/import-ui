@@ -13,7 +13,14 @@ export default class NavBar extends React.Component {
       breadcrumb = (
         <>
         <li className="breadcrumb-item">Home</li>
-        <li className="breadcrumb-item active" aria-current="page"><Link data="publish" onClick={stepChange} to="/publish">Publish</Link></li>
+        </>
+      );
+    }
+    else if (step === "preview") {
+      breadcrumb = (
+        <>
+        <li className="breadcrumb-item"><Link data="home" onClick={stepChange} to="/">Home</Link></li>
+        <li className="breadcrumb-item active" aria-current="page">Preview</li>
         </>
       );
     }
@@ -21,6 +28,7 @@ export default class NavBar extends React.Component {
       breadcrumb = (
         <>
         <li className="breadcrumb-item"><Link data="home" onClick={stepChange} to="/">Home</Link></li>
+        <li className="breadcrumb-item"><Link data="preview" onClick={stepChange} to="/preview">Preview</Link></li>
         <li className="breadcrumb-item active" aria-current="page">Publish</li>
         </>
       );

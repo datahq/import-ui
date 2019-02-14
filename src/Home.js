@@ -13,10 +13,15 @@ class Home extends Component {
         <h1>Welcome</h1>
         <p className="lead">This is the home page.</p>
         <FileConsumer>
-          {({ file, fileUpload  }) => (
+          {({ file, fileUpload, type }) => (
             <div>
+                {type === "wrong" ? (
+                  <div className="alert alert-danger" role="alert">Hey there. We only accept CSVs.</div>
+                ) : (
+                  <></>
+                )}
                 {file ? (
-                  <div><p>We have a file!</p></div>
+                  <div><p>Ready to rock with: {file.name}</p></div>
                 ) : (
                   <FileUpload upload={fileUpload} />
                 )}

@@ -12,14 +12,23 @@ export default class Pager extends React.Component {
     else if (step === "home") {
       pager = (
         <>
+        <li className="page-item"><Link data="preview" onClick={stepChange} to="/preview" className="page-link">Next</Link></li>
+        </>
+      );
+    }
+    else if (step === "preview") {
+      pager = (
+        <>
+        <li className="page-item"><Link data="home" onClick={stepChange} to="/" className="page-link">Previous</Link></li>
         <li className="page-item"><Link data="publish" onClick={stepChange} to="/publish" className="page-link">Next</Link></li>
+
         </>
       );
     }
     else if (step === "publish") {
       pager = (
         <>
-        <li className="page-item"><Link data="home" onClick={stepChange} to="/" className="page-link">Previous</Link></li>
+        <li className="page-item"><Link data="preview" onClick={stepChange} to="/preview" className="page-link">Previous</Link></li>
         </>
       );
     }
@@ -29,7 +38,7 @@ export default class Pager extends React.Component {
 
   render() {
     return (
-      <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation example" className="container-fluid">
         <ul className="pagination">
           <FileConsumer>
             {({ file, stepChange, step }) => (
